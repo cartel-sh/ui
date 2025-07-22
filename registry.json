@@ -1,0 +1,116 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "@cartel-sh/ui",
+  "homepage": "https://github.com/cartel-sh/ui",
+  "registries": {
+    "default": {}
+  },
+  "items": [
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "files": ["registry/default/avatar.tsx"],
+      "dependencies": ["@radix-ui/react-avatar"],
+      "title": "Avatar",
+      "description": "An avatar component with image and fallback support."
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "files": ["registry/default/button.tsx"],
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button."
+    },
+    {
+      "name": "user-avatar",
+      "type": "registry:ui",
+      "registryDependencies": ["avatar", "hover-card"],
+      "files": ["registry/default/user-avatar.tsx"],
+      "dependencies": ["@radix-ui/react-avatar"],
+      "title": "User Avatar",
+      "description": "A reusable avatar component that displays a user's profile picture with a fallback to their initials."
+    },
+    {
+      "name": "user-card",
+      "type": "registry:ui",
+      "registryDependencies": ["avatar", "button", "hover-card"],
+      "files": ["registry/default/user-card.tsx"],
+      "dependencies": ["@radix-ui/react-hover-card"],
+      "title": "User Card",
+      "description": "A hover card component that displays user information and a follow button."
+    },
+    {
+      "name": "follow-button",
+      "type": "registry:ui",
+      "registryDependencies": ["button", "dialog"],
+      "files": ["registry/default/follow-button.tsx"],
+      "dependencies": ["@radix-ui/react-dialog"],
+      "title": "Follow Button",
+      "description": "A reusable button component for following/unfollowing users with optimistic updates."
+    },
+    {
+      "name": "post-view",
+      "type": "registry:ui",
+      "registryDependencies": ["avatar", "button", "dropdown-menu"],
+      "files": ["registry/default/post-view.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Post View",
+      "description": "The main post display component that renders a complete post with avatar, content, and reactions."
+    },
+    {
+      "name": "post-info",
+      "type": "registry:ui",
+      "registryDependencies": ["dropdown-menu", "button"],
+      "files": ["registry/default/post-info.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Post Info",
+      "description": "Displays post metadata including author info, timestamp, and a dropdown menu."
+    },
+    {
+      "name": "post-content",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "files": ["registry/default/post-content.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Post Content",
+      "description": "Renders the actual content of a post including text, media, and link previews."
+    },
+    {
+      "name": "group-view",
+      "type": "registry:ui",
+      "registryDependencies": ["button", "card"],
+      "files": ["registry/default/group-view.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Group View",
+      "description": "A card component that displays group information with join/leave functionality."
+    },
+    {
+      "name": "group-header",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "files": ["registry/default/group-header.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Group Header",
+      "description": "A header component for group pages showing group info and join/leave button."
+    },
+    {
+      "name": "notification-view",
+      "type": "registry:ui",
+      "registryDependencies": ["avatar", "button", "context-menu"],
+      "files": ["registry/default/notification-view.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Notification View",
+      "description": "A comprehensive notification display component that renders different notification types."
+    },
+    {
+      "name": "reaction-button",
+      "type": "registry:ui", 
+      "registryDependencies": ["button", "tooltip"],
+      "files": ["registry/default/reaction-button.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Reaction Button",
+      "description": "A reusable reaction button with tooltip, count display, and active state handling."
+    }
+  ]
+}
