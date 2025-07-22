@@ -106,11 +106,83 @@
     {
       "name": "reaction-button",
       "type": "registry:ui", 
-      "registryDependencies": ["button", "tooltip"],
+      "registryDependencies": ["button", "tooltip", "reaction-icon"],
       "files": ["registry/default/reaction-button.tsx"],
-      "dependencies": ["lucide-react"],
+      "dependencies": [],
       "title": "Reaction Button",
       "description": "A reusable reaction button with tooltip, count display, and active state handling."
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "files": ["registry/default/badge.tsx"],
+      "dependencies": ["class-variance-authority"],
+      "title": "Badge",
+      "description": "Displays a badge or label."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": ["registry/default/skeleton.tsx"],
+      "dependencies": [],
+      "title": "Skeleton",
+      "description": "Use to show a placeholder while content is loading."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "files": ["registry/default/tooltip.tsx"],
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "title": "Tooltip",
+      "description": "A popup that displays information related to an element when hovered."
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": ["registry/default/card.tsx"],
+      "dependencies": [],
+      "title": "Card",
+      "description": "Displays a card with header, content, and footer."
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "files": ["registry/default/hover-card.tsx"],
+      "dependencies": ["@radix-ui/react-hover-card"],
+      "title": "Hover Card",
+      "description": "For sighted users to preview content available behind a link."
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "files": ["registry/default/dialog.tsx"],
+      "dependencies": ["@radix-ui/react-dialog"],
+      "title": "Dialog",
+      "description": "A modal dialog that interrupts the user with important content."
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "files": ["registry/default/dropdown-menu.tsx"],
+      "dependencies": ["@radix-ui/react-dropdown-menu"],
+      "title": "Dropdown Menu",
+      "description": "Displays a menu to the user triggered by a button."
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "files": ["registry/default/context-menu.tsx"],
+      "dependencies": ["@radix-ui/react-context-menu"],
+      "title": "Context Menu",
+      "description": "Displays a menu triggered by right-click."
+    },
+    {
+      "name": "reaction-icon",
+      "type": "registry:ui",
+      "files": ["registry/default/reaction-icon.tsx"],
+      "dependencies": ["lucide-react"],
+      "title": "Reaction Icon",
+      "description": "Icon component for different reaction types."
     }
   ]
 }

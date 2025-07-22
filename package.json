@@ -1,6 +1,6 @@
 {
   "name": "@cartel-sh/ui",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Shared types and utilities for Ping web3 applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,6 +42,9 @@
     "@radix-ui/react-dropdown-menu": "*",
     "@radix-ui/react-dialog": "*",
     "@radix-ui/react-slot": "*",
+    "@radix-ui/react-tooltip": "*",
+    "@radix-ui/react-context-menu": "*",
+    "@tanstack/react-query": "*",
     "clsx": "*",
     "next": "*",
     "react": "*",

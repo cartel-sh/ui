@@ -5,10 +5,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 export interface UserAvatarProps {
   user: User;
   link?: boolean;
+  card?: boolean;
   className?: string;
 }
 
-export function UserAvatar({ user, link = true, className }: UserAvatarProps) {
+export function UserAvatar({ user, link = true, card = true, className }: UserAvatarProps) {
   const fallback = user?.username?.slice(0, 2) ?? "";
   
   const avatar = (

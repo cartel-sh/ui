@@ -1,27 +1,21 @@
 "use client";
 import { useState } from "react";
-import { Heart, MessageCircle, Repeat2, ArrowUp, ArrowDown } from "lucide-react";
+import { PostReactionType } from "@cartel-sh/ui";
 import { Button } from "./button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./tooltip";
+import { ReactionIcon } from "./reaction-icon";
 import { cn } from "../../lib/utils";
 
-export type ReactionType = "Upvote" | "Downvote" | "Like" | "Comment" | "Repost";
-
 export interface ReactionButtonProps {
-  type: ReactionType;
+  type: PostReactionType | "Like";
   count?: number;
   active?: boolean;
   disabled?: boolean;
   onClick?: () => void;
   className?: string;
+  variant?: "post" | "comment";
+  showTooltip?: boolean;
 }
-
-const reactionIcons = {
-  Upvote: ArrowUp,
-  Downvote: ArrowDown,
-  Like: Heart,
-  Comment: MessageCircle,
-  Repost: Repeat2,
-};
 
 export function ReactionButton({ 
   type, 
@@ -29,10 +23,11 @@ export function ReactionButton({
   active = false, 
   disabled = false,
   onClick,
-  className 
+  className,
+  variant = "post",
+  showTooltip = true
 }: ReactionButtonProps) {
   const [isActive, setIsActive] = useState(active);
-  const Icon = reactionIcons[type];
 
   const handleClick = () => {
     if (!disabled) {
@@ -41,23 +36,36 @@ export function ReactionButton({
     }
   };
 
-  return (
+  const button = (
     <Button
       variant="ghost"
       size="sm"
       className={cn(
-        "h-auto px-2 py-1 gap-1",
-        isActive && type === "Upvote" && "text-green-500",
-        isActive && type === "Downvote" && "text-red-500",
-        isActive && type === "Like" && "text-red-500",
-        isActive && type === "Repost" && "text-blue-500",
+        "h-auto px-2 py-1 gap-1 hover:bg-transparent",
         className
       )}
       onClick={handleClick}
       disabled={disabled}
     >
-      <Icon className="h-4 w-4" />
+      <ReactionIcon reaction={type} pressed={isActive} variant={variant} />
       {count > 0 && <span className="text-xs">{count}</span>}
     </Button>
+  );
+
+  if (!showTooltip) {
+    return button;
+  }
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          {button}
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{type}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }
