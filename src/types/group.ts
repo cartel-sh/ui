@@ -13,6 +13,7 @@ export type GroupMetadata = {
   description?: string;
   icon?: string;
   coverPicture?: string;
+  hook?: string;
 };
 
 export type GroupRules = {

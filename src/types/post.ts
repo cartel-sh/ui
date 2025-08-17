@@ -1,4 +1,5 @@
 import type { User } from "./user";
+import type { PostMetadata } from "./metadata";
 
 export type PostReactionType = "Repost" | "Comment" | "Bookmark" | "Collect";
 
@@ -17,7 +18,7 @@ export type PostReactions = Record<PostReactionType, number> & {
   canEdit: boolean;
 };
 
-export type PostPlatform = "lens" | "bsky";
+export type PostPlatform = "lens" | "bsky" | "ecp";
 
 export type PostActions = {
   canComment: boolean;
@@ -46,7 +47,7 @@ export type Post = {
   author: User;
   createdAt: Date;
   comments: Post[];
-  metadata: any;
+  metadata: PostMetadata;
   mentions?: PostMention[];
   reactions?: Partial<PostReactions>;
   updatedAt?: Date;
