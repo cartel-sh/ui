@@ -58,11 +58,4 @@ export type Post = {
   repostedBy?: User;
   repostedAt?: Date;
   isEdited?: boolean;
-  content?: string;
-  tokenMetadata?: Record<string, { symbol: string; name: string; address: string; chainId: number }>;
-  channel?: {
-    id: string;
-    name: string;
-    slug?: string;
-  };
 };
