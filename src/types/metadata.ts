@@ -1,5 +1,4 @@
 export interface BaseMetadata {
-  __typename: string;
   content?: string;
   channel?: {
     id: string;
@@ -11,13 +10,12 @@ export interface BaseMetadata {
 }
 
 export interface TextOnlyMetadata extends BaseMetadata {
-  __typename: "TextOnlyMetadata";
   content: string;
 }
 
 export interface MarkdownMetadata extends BaseMetadata {
-  __typename: "MarkdownMetadata";
   content: string;
+  mediaMimeTypes?: Record<string, string>;
 }
 
 export type PostMetadata = TextOnlyMetadata | MarkdownMetadata | any;

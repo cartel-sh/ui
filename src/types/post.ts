@@ -28,20 +28,17 @@ export type PostActions = {
 
 export type PostMention =
   | {
-      __typename: "AccountMention";
       account: string;
       namespace?: string;
       localName?: string;
       replace?: {
-        __typename: "MentionReplace";
         from: string;
         to: string;
       };
     }
-  | { __typename: "GroupMention"; group: string };
+  | { group: string };
 
 export type Post = {
-  __typename: "Post";
   id: string;
   platform: PostPlatform;
   author: User;
