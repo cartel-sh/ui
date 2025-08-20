@@ -47,7 +47,6 @@ export interface BaseMetadata {
     name: string;
     slug?: string;
   };
-  channelId?: string;
 }
 
 export interface MarkdownMetadata extends BaseMetadata {
@@ -55,7 +54,11 @@ export interface MarkdownMetadata extends BaseMetadata {
   mediaData?: MediaData;
   tokenData?: TokenData;
   mentionData?: MentionData;
-  attachments?: MediaAttachment[];
+}
+
+export interface MediaMetadata {
+  content?: string;
+  attachments: MediaAttachment[];
 }
 
 export interface ImageMetadata {
@@ -94,6 +97,7 @@ export type PostMetadata = MarkdownMetadata;
 
 export type AnyMetadata = 
   | MarkdownMetadata
+  | MediaMetadata
   | ImageMetadata
   | VideoMetadata
   | AudioMetadata

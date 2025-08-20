@@ -1,6 +1,7 @@
 import type { 
   PostMetadata, 
   MarkdownMetadata,
+  MediaMetadata,
   ImageMetadata,
   VideoMetadata,
   AudioMetadata,
@@ -12,7 +13,11 @@ import type {
 import type { PostMention } from "./post";
 
 export function isMarkdownMetadata(metadata: any): metadata is MarkdownMetadata {
-  return metadata && typeof metadata.content === "string";
+  return metadata && typeof metadata.content === "string" && !("attachments" in metadata);
+}
+
+export function isMediaMetadata(metadata: any): metadata is MediaMetadata {
+  return metadata && "attachments" in metadata && Array.isArray(metadata.attachments);
 }
 
 export function isImageMetadata(metadata: any): metadata is ImageMetadata {
