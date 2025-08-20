@@ -7,6 +7,39 @@ export interface MediaAsset {
   title?: string;
 }
 
+export interface MediaData {
+  [url: string]: string; // URL to MIME type mapping
+}
+
+export interface TokenInfo {
+  symbol: string;
+  name: string;
+  address: string;
+  chainId: number;
+}
+
+export interface TokenData {
+  [tokenId: string]: TokenInfo;
+}
+
+export interface MentionInfo {
+  account?: string;
+  group?: string;
+}
+
+export interface MentionData {
+  [mentionId: string]: MentionInfo;
+}
+
+export interface MediaAttachment {
+  item: string;
+  type: string;
+  altTag?: string;
+  cover?: string;
+  artist?: string;
+  title?: string;
+}
+
 export interface BaseMetadata {
   content: string;
   channel?: {
@@ -19,10 +52,10 @@ export interface BaseMetadata {
 
 export interface MarkdownMetadata extends BaseMetadata {
   content: string;
-  mediaData?: Record<string, string>;
-  tokenData?: Record<string, { symbol: string; name: string; address: string; chainId: number }>;
-  mentionData?: Record<string, { account?: string; group?: string }>;
-  attachments?: Array<{ item: string; type: string }>;
+  mediaData?: MediaData;
+  tokenData?: TokenData;
+  mentionData?: MentionData;
+  attachments?: MediaAttachment[];
 }
 
 export interface ImageMetadata {
@@ -68,10 +101,6 @@ export type AnyMetadata =
   | EmbedMetadata
   | EventMetadata;
 
-export type MediaAttachment = {
-  item: string;
-  type: string;
-};
 
 // Legacy aliases for backward compatibility
 export type TextOnlyMetadata = BaseMetadata;
