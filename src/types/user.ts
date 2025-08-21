@@ -26,7 +26,7 @@ export type UserStats = {
 export type User = {
   id: string;
   name?: string;
-  username: string;
+  username?: string;
   address: string;
   namespace: string;
   actions?: UserActions;
