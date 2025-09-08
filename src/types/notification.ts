@@ -17,7 +17,7 @@ export type Notification = {
 	id: string;
 	who: User[];
 	actedOn?: Post;
-	createdAt: Date;
+	createdAt: Date | null;
 	type: NotificationType;
 	reactionType?: "Upvote" | "Downvote";
 	actionType?: string;
